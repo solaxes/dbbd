@@ -16,7 +16,7 @@ export default function ThePathPage() {
         subtitle={thePath.subtitle}
         image={images.homeBg}
       />
-      <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="page-container mx-auto max-w-3xl space-y-6 py-16 pt-20">
         {thePath.sections.map((section, index) => (
           <ContentSection
             key={section.heading}

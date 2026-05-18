@@ -11,12 +11,8 @@ export const metadata: Metadata = {
 export default function TheAimPage() {
   return (
     <>
-      <PageHero
-        title={theAim.title}
-        subtitle={theAim.subtitle}
-        image={images.hero}
-      />
-      <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6 lg:px-8">
+      <PageHero title={theAim.title} subtitle={theAim.subtitle} image={images.hero} />
+      <div className="page-container mx-auto max-w-3xl space-y-6 py-16 pt-20">
         {theAim.sections.map((section, index) => (
           <ContentSection
             key={section.heading}

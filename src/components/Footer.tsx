@@ -5,33 +5,32 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-[#505152] bg-[#363839] text-[#8c8989]">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
+    <footer className="mt-auto bg-gradient-to-b from-[#2a2826] to-[#1f1d1b] text-[#a8a4a0]">
+      <div className="page-container grid gap-10 py-14 lg:grid-cols-3">
         <div>
-          <h4 className="mb-4 text-sm font-semibold tracking-wide text-[#dddddd]">
-            {site.name}
-          </h4>
+          <h4 className="font-heading mb-4 text-lg text-[#f0ebe3]">{site.name}</h4>
           <p className="text-sm leading-relaxed">{site.tagline}</p>
           <a
             href={site.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block text-sm text-[#bfbfbf] transition-colors hover:text-gold-light"
+            className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#4a4744] px-4 py-2 text-sm text-[#d4cfc8] transition hover:border-gold/50 hover:text-gold-light"
           >
-            Find us on Facebook →
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            Facebook
           </a>
         </div>
 
         <div>
-          <h4 className="mb-4 text-sm font-semibold tracking-wide text-[#dddddd]">
-            Quick Links
-          </h4>
-          <ul className="space-y-2 text-sm">
+          <h4 className="section-eyebrow mb-4 text-[#8a8580]">Quick Links</h4>
+          <ul className="space-y-2.5">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[#bfbfbf] transition-colors hover:text-gold-light"
+                  className="text-sm text-[#c4bfb8] transition hover:text-gold-light"
                 >
                   {item.label}
                 </Link>
@@ -41,33 +40,27 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-4 text-sm font-semibold tracking-wide text-[#dddddd]">
-            Contact Info
-          </h4>
-          <address className="space-y-2 text-sm not-italic leading-relaxed">
+          <h4 className="section-eyebrow mb-4 text-[#8a8580]">Contact</h4>
+          <address className="space-y-3 text-sm not-italic leading-relaxed">
             <p>
               {site.address.line1}
               <br />
-              {site.address.line2}
-              <br />
-              {site.address.line3}
+              {site.address.line2}, {site.address.line3}
               <br />
               {site.address.country}
             </p>
             <p>
-              Email:{" "}
               <a
                 href={`mailto:${site.email}`}
-                className="text-[#bfbfbf] hover:text-gold-light"
+                className="text-[#c4bfb8] transition hover:text-gold-light"
               >
                 {site.email}
               </a>
             </p>
             <p>
-              Web:{" "}
               <a
                 href={`https://${site.website}`}
-                className="text-[#bfbfbf] hover:text-gold-light"
+                className="text-[#c4bfb8] transition hover:text-gold-light"
               >
                 {site.website}
               </a>
@@ -76,8 +69,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#4b4c4d] bg-[#282a2b] py-4 text-center text-xs text-[#8c8989]">
-        © {year} | All Rights Reserved | {site.name}
+      <div className="border-t border-[#3a3836] py-5 text-center">
+        <p className="text-xs tracking-wide text-[#6b6661]">
+          © {year} {site.name} · All Rights Reserved
+        </p>
       </div>
     </footer>
   );

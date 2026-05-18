@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Josefin_Slab, Lato, Oswald } from "next/font/google";
+import { Cormorant_Garamond, Lato, Oswald } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { facebook, site } from "@/lib/content";
 import "./globals.css";
 
@@ -11,16 +12,16 @@ const lato = Lato({
   weight: ["400", "700"],
 });
 
-const josefinSlab = Josefin_Slab({
-  variable: "--font-josefin",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -45,14 +46,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${josefinSlab.variable} ${oswald.variable} h-full`}
+      className={`${lato.variable} ${cormorant.variable} ${oswald.variable} h-full`}
     >
-      <body className="pattern-bg flex min-h-full flex-col antialiased">
-        <div className="mx-auto w-full max-w-[1160px] flex-1 bg-white shadow-lg">
-          <Header />
-          <main className="content-pattern flex-1">{children}</main>
-          <Footer />
-        </div>
+      <body className="flex min-h-dvh flex-col bg-surface antialiased">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

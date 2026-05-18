@@ -7,12 +7,19 @@ type ContentSectionProps = {
 export function ContentSection({ heading, body, index = 0 }: ContentSectionProps) {
   return (
     <section
-      className={`rounded-sm border border-border bg-white p-6 shadow-sm sm:p-8 ${
-        index % 2 === 1 ? "sm:ml-8" : ""
+      className={`card group p-6 sm:p-8 ${
+        index % 2 === 1 ? "sm:translate-x-4" : ""
       }`}
     >
-      <h2 className="font-heading mb-4 text-xl text-foreground sm:text-2xl">{heading}</h2>
-      <p className="text-muted leading-relaxed">{body}</p>
+      <div className="accent-border">
+        <span className="section-eyebrow mb-2 block opacity-70">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h2 className="font-heading text-2xl text-foreground transition-colors group-hover:text-gold-dark sm:text-3xl">
+          {heading}
+        </h2>
+        <p className="text-muted mt-4 leading-relaxed">{body}</p>
+      </div>
     </section>
   );
 }
