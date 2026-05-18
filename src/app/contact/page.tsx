@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { FacebookPageEmbed } from "@/components/FacebookPageEmbed";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { facebook, images, site } from "@/lib/content";
+import { images, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -72,19 +70,6 @@ export default function ContactPage() {
 
         <ContactForm />
       </div>
-
-      <section className="section-full border-t border-border bg-gradient-to-b from-surface-alt to-surface py-16">
-        <div className="page-container mx-auto max-w-2xl">
-          <SectionHeader
-            eyebrow="Social"
-            title={`Follow ${site.name}`}
-            description={facebook.about}
-          />
-          <div className="card overflow-hidden p-2">
-            <FacebookPageEmbed height={400} />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

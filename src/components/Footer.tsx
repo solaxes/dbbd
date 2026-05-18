@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FacebookPageEmbed } from "@/components/FacebookPageEmbed";
 import { navItems, site } from "@/lib/content";
 
 export function Footer() {
@@ -6,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="mt-auto bg-gradient-to-b from-[#2a2826] to-[#1f1d1b] text-[#a8a4a0]">
-      <div className="page-container grid gap-10 py-14 lg:grid-cols-3">
+      <div className="page-container grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div>
           <h4 className="font-heading mb-4 text-lg text-[#f0ebe3]">{site.name}</h4>
           <p className="text-sm leading-relaxed">{site.tagline}</p>
@@ -66,6 +67,11 @@ export function Footer() {
               </a>
             </p>
           </address>
+        </div>
+
+        <div className="sm:col-span-2 lg:col-span-1">
+          <h4 className="section-eyebrow mb-4 text-[#8a8580]">Facebook</h4>
+          <FacebookPageEmbed variant="compact" />
         </div>
       </div>
 

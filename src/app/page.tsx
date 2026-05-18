@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArchiveImage } from "@/components/ArchiveImage";
-import { FacebookSection } from "@/components/FacebookSection";
 import { SaintCard } from "@/components/SaintCard";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -139,8 +138,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <FacebookSection />
     </>
   );
 }

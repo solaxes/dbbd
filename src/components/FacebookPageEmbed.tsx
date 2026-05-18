@@ -11,16 +11,21 @@ declare global {
 }
 
 type FacebookPageEmbedProps = {
+  /** Header-only embed — fits footer height. Timeline shows full feed. */
+  variant?: "compact" | "timeline";
   height?: number;
-  tabs?: "timeline" | "events" | "messages";
   className?: string;
 };
 
 export function FacebookPageEmbed({
-  height = 500,
-  tabs = "timeline",
+  variant = "timeline",
+  height,
   className = "",
 }: FacebookPageEmbedProps) {
+  const compact = variant === "compact";
+  const resolvedHeight = height ?? (compact ? 130 : 500);
+  const tabs = compact ? "" : "timeline";
+
   useEffect(() => {
     const parse = () => window.FB?.XFBML.parse();
 
@@ -37,21 +42,21 @@ export function FacebookPageEmbed({
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
-  }, []);
+  }, [variant]);
 
   return (
     <div className={className}>
       <div id="fb-root" />
       <div
-        className="fb-page mx-auto max-w-full"
+        className="fb-page max-w-full [&_span]:!align-top"
         data-href={facebook.pageUrl}
         data-tabs={tabs}
         data-width=""
-        data-height={height}
-        data-small-header="false"
+        data-height={resolvedHeight}
+        data-small-header={compact ? "true" : "false"}
         data-adapt-container-width="true"
-        data-hide-cover="false"
-        data-show-facepile="true"
+        data-hide-cover={compact ? "true" : "false"}
+        data-show-facepile={compact ? "false" : "true"}
       />
     </div>
   );
